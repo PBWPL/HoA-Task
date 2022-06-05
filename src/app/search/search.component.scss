@@ -1,0 +1,43 @@
+.search {
+  &-logo {
+    width: fit-content;
+    margin: auto;
+    cursor: default;
+    font-size: 5rem;
+    line-height: normal;
+
+    span {
+      &:nth-child(3n + 1) {
+        color: #4285f4;
+      }
+      &:nth-child(4n + 2) {
+        color: #ea4335;
+      }
+      &:nth-child(3) {
+        color: #fbbc05;
+      }
+      &:nth-child(5) {
+        color: #34a853;
+      }
+    }
+
+    &:hover > &-two {
+      display: block;
+    }
+
+    &:hover > &-one {
+      display: none;
+    }
+
+    &-two {
+      display: none;
+    }
+  }
+
+  &-form {
+    max-width: 320px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+}

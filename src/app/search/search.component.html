@@ -1,1 +1,30 @@
-<p>search works!</p>
+<div class="search">
+    <div class="search-logo">
+        <div class="search-logo-one">
+            <span>S</span><span>e</span><span>a</span><span>r</span><span>c</span><span>h</span>
+        </div>
+        <div class="search-logo-two">
+            <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+        </div>
+    </div>
+
+    <div class="search-form">
+        <mat-form-field appearance="outline">
+            <mat-icon matPrefix>search</mat-icon>
+            <input matInput type="text" [(ngModel)]="searchText" [formControl]="searchFormControl"
+                [matAutocomplete]="auto" aria-label="Search" autofocus="autofocus" (keydown.enter)="googleSearch()">
+            <mat-autocomplete #auto="matAutocomplete">
+                <ng-container *ngIf="searchText">
+                    <mat-option *ngFor="let word of filteredWords | async" [value]="word">
+                        {{word}}
+                    </mat-option>
+                </ng-container>
+            </mat-autocomplete>
+            <button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="searchText=''">
+                <mat-icon matSuffix>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <button mat-stroked-button (click)="googleSearch()" aria-label="search">Search</button>
+    </div>
+</div>
